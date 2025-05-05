@@ -15,7 +15,6 @@
     "@graphiql/toolkit": "^0.11.1",
     "esbuild": "^0.25.3",
     "graphiql": "3.9.0",
-    "graphiql-snippets": "^1.0.0",
     "graphql": "^16.11.0",
     "react": "18",
     "react-dom": "18",

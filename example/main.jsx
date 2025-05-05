@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client';
 import GraphiQL from 'graphiql';
 import { createGraphiQLFetcher } from '@graphiql/toolkit';
 
-// import snippetPlugin from '../dist/index.js';
+import snippetPlugin from '../dist/index.js';
 
-import snippetPlugin from 'graphiql-snippets';
 const fetcherUrl = 'https://swapi-graphql.netlify.app/graphql';
 const snippetsUrl = '/snippets.json';
 

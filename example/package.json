@@ -1,0 +1,28 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.jsx",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "@graphiql/plugin-code-exporter": "^4.0.1",
+    "@graphiql/toolkit": "^0.11.1",
+    "esbuild": "^0.25.3",
+    "graphiql": "3.9.0",
+    "graphiql-snippets": "^1.0.0",
+    "graphql": "^16.11.0",
+    "react": "18",
+    "react-dom": "18",
+    "regenerator-runtime": "^0.14.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "vite": "^6.3.4"
+  }
+}

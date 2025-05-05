@@ -1,0 +1,16 @@
+[
+  {
+    "title": "All Films",
+    "query": "query {\n\tallFilms {\n    films {\n      id\n      episodeID\n      title\n      director\n    }\n  }\n}"
+  },
+  {
+    "title": "Film by ID",
+    "query": "query($id: ID!) { \n\tfilm(filmID: $id) {\n    episodeID\n    title\n    director\n    releaseDate\n  }\n}",
+    "variables": "{\n  \"id\": 1\n}"
+  },
+  {
+    "title": "Planet By ID",
+    "query": "query($id: ID!) { \n\tplanet(planetID: $id) {\n    id\n    name\n    diameter\n    rotationPeriod\n    orbitalPeriod\n    gravity\n    population\n  }\n}",
+    "variables": "{\n  \"id\": 1\n}"
+  }
+]

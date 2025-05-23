@@ -1,68 +1,61 @@
 import { defineConfig, PluginOption } from 'vite';
 import react from '@vitejs/plugin-react';
-import type { PluginOptions as ReactCompilerConfig } from 'babel-plugin-react-compiler';
 import packageJSON from './package.json' with { type: 'json' };
 import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
+import path from 'path';
+import copy from 'rollup-plugin-copy';
 
-const IS_UMD = true;
-
-export const reactCompilerConfig: Partial<ReactCompilerConfig> = {
-  target: '18',
-  sources(filename) {
-    if (filename.includes('__tests__')) {
-      return false;
-    }
-    return filename.includes('/graphiql-snippets/');
-  },
-};
-
-export const plugins: PluginOption[] = [
-  react({
-    babel: {
-      plugins: [['babel-plugin-react-compiler', reactCompilerConfig]],
-    },
-  }),
-  svgr({
-    include: "**/*.svg",
-  }),
-  dts({
-    include: ['src/**', 'custom.d.ts'],
-    exclude: ['**/*.spec.{ts,tsx}', '**/__tests__/'],
-  })
-];
+const umdOutDir = 'public/libs';
 
 export default defineConfig({
-  plugins,
-  css: {
-    transformer: 'lightningcss',
+  plugins: [
+    react(),
+    svgr({ include: '**/*.svg' }),
+    dts({
+      include: ['src/**', 'custom.d.ts'],
+      exclude: ['**/*.spec.{ts,tsx}', '**/__tests__/'],
+    }),
+    copy({
+      targets: [{ src: 'dist/index.umd.js', dest: umdOutDir }],
+      hook: 'writeBundle',
+      verbose: true,
+    }) as PluginOption,
+  ],
+  resolve: {
+    alias: {
+      'graphiql-snippets': path.resolve(__dirname, 'dist/index.esm.js'),
+    },
   },
   build: {
     minify: false,
     sourcemap: true,
+    target: 'es2022',
     lib: {
-      entry: 'src/index.tsx',
-      fileName(_format, entryName) {
-        const filePath = entryName.replace(/\.svg$/, '');
-        return `${filePath}.js`;
-      },
-      formats: ['es'],
-      cssFileName: 'style',
+      entry: path.resolve(__dirname, 'src/index.tsx'),
+      name: 'snippetPlugin',
+      fileName: (format) => (format !== 'es' ? `index.${format}.js` : 'index.esm.js'),
+      formats: ['es', 'umd', 'cjs'],
+      cssFileName: 'style.css',
     },
+
     rollupOptions: {
       external: [
         'react/jsx-runtime',
-        // Exclude peer dependencies and dependencies from bundle
-        ...Object.keys(packageJSON.peerDependencies),
-        ...Object.keys(packageJSON.dependencies),
+        '@graphiql/react',
+        ...Object.keys(packageJSON.peerDependencies || {}),
+        ...Object.keys(packageJSON.dependencies || {}),
       ],
       output: {
-        preserveModules: true,
+        exports: 'named',
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime',
+          '@graphiql/react': 'GraphiQLReact',
+          graphiql: 'GraphiQL',
+        },
       },
-    },
-    commonjsOptions: {
-      esmExternals: true,
-      requireReturnsDefault: 'auto',
-    },
+    }
   },
 });

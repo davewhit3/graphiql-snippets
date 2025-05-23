@@ -13,7 +13,6 @@ export {
   type SnippetContextType,
 } from './context';
 
-
 export default function snippetPlugin(
   snippetsEndpoint: string,
   setQuery: (query: string) => void,

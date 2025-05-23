@@ -2,20 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GraphiQL + Snippets Example</title>
+  <title>GraphiQL + Snippets (ESM)</title>
   <style>
-      body {
+      html, body, #root {
           margin: 0;
-          overflow: hidden;
+          padding: 0;
+          height: 100%;
       }
   </style>
+  <!-- Styl GraphiQL -->
   <link
     rel="stylesheet"
-    href="https://esm.sh/graphiql@3.9.0/dist/style.css"
+    href="https://cdn.jsdelivr.net/npm/graphiql@3.9.0/graphiql.min.css"
   />
+  <!-- es-module-shims dla wsparcia Import Maps -->
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.6.3/dist/es-module-shims.min.js"></script>
+  <!-- Import Maps -->
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react-dom/client": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/client/+esm",
+        "react-compiler-runtime": "https://cdn.jsdelivr.net/npm/react-compiler-runtime@rc/+esm",
+        "react/jsx-runtime": "https://cdn.jsdelivr.net/npm/react@18.2.0/jsx-runtime/+esm",
+        "@graphiql/react": "https://cdn.jsdelivr.net/npm/@graphiql/react@0.31.0/+esm",
+        "@graphiql/toolkit": "https://cdn.jsdelivr.net/npm/@graphiql/toolkit@0.11.1/+esm",
+        "graphiql": "https://cdn.jsdelivr.net/npm/graphiql@4.0.2/+esm",
+        "graphiql-snippets-next": "https://cdn.jsdelivr.net/npm/graphiql-snippets-next@1.0.8/dist/index.esm.js"
+      }
+    }
+  </script>
 </head>
 <body>
 <div id="root"></div>
-<script type="module" src="/main.jsx"></script>
+
+<script type="module">
+  import React, { useState, StrictMode } from 'react';
+  import { createRoot } from 'react-dom/client';
+  import { GraphiQL } from 'graphiql';
+  import { createGraphiQLFetcher } from '@graphiql/toolkit';
+  import snippetPlugin from 'graphiql-snippets-next';
+
+  const fetcherUrl = 'https://swapi-graphql.netlify.app/graphql';
+  const snippetsUrl = '/snippets.json';
+
+  const fetcher = createGraphiQLFetcher({
+    url: fetcherUrl,
+  });
+
+  function App() {
+    const [query, setQuery] = useState('');
+    const [variables, setVariables] = useState('');
+    const plugin = snippetPlugin(snippetsUrl, setQuery, setVariables);
+
+    return React.createElement('div', { style: { height: '100%' } },
+      React.createElement(GraphiQL, {
+        fetcher,
+        query,
+        variables,
+        disableTabs: true,
+        plugins: [plugin],
+        isHeadersEditorEnabled: true,
+        shouldPersistHeaders: true,
+      })
+    );
+  }
+
+  const rootElement = document.getElementById('root');
+  const root = createRoot(rootElement);
+  root.render(React.createElement(StrictMode, null, React.createElement(App)));
+</script>
 </body>
 </html>

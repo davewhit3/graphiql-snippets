@@ -1,6 +1,6 @@
 import { QueryStoreItem } from '@graphiql/toolkit';
-import {ReactNode, useEffect, useState} from 'react';
-import {createContextHook, createNullableContext} from '@graphiql/react';
+import {ReactNode, useEffect, useState, createContext, useContext } from 'react';
+
 
 export type SnippetContextType = {
   items: QueryStoreItem[];
@@ -8,6 +8,22 @@ export type SnippetContextType = {
   editVariables: (variables: string) => void
   snippetsEndpoint: string;
 };
+
+export function createNullableContext<T>(name: string) {
+  const context = createContext<T | null>(null);
+  context.displayName = name;
+  return context;
+}
+
+export function createContextHook<T>(context: React.Context<T | null>) {
+  return function useNamedContext(): T {
+    const value = useContext(context);
+    if (value === null) {
+      throw new Error(`${context.displayName ?? 'UnnamedContext'} must be used within its provider`);
+    }
+    return value;
+  };
+}
 
 export const SnippetContext = createNullableContext<SnippetContextType>('SnippetContext');
 

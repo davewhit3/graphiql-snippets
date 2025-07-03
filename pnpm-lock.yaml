@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@graphiql/react':
-        specifier: 0.31.0
-        version: 0.31.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.29.0
+        version: 0.29.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@graphiql/toolkit':
-        specifier: ^0.11.1
+        specifier: ^0.11.0
         version: 0.11.1(@types/node@22.15.3)(graphql@16.11.0)
       '@headlessui/react':
         specifier: ^2.2.2
         version: 2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       graphiql:
-        specifier: ^4.0.1
-        version: 4.0.1(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^3.7.0
+        version: 3.9.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       graphql:
         specifier: ^16.11.0
         version: 16.11.0
@@ -642,6 +642,12 @@ packages:
   '@codemirror/view@6.36.7':
     resolution: {integrity: sha512-kCWGW/chWGPgZqfZ36Um9Iz0X2IVpmCjg1P/qY6B6a2ecXtWRRAigmpJ6YgUQ5lTWXMyyVdfmpzhLZmsZQMbtg==}
 
+  '@emotion/is-prop-valid@0.8.8':
+    resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+
+  '@emotion/memoize@0.7.4':
+    resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+
   '@esbuild/aix-ppc64@0.25.3':
     resolution: {integrity: sha512-W8bFfPA8DowP8l//sxjJLSLkD8iEjMc7cBVyP+u4cEv9sM7mdUCkgsj+t0n/BWPFtv7WWCN5Yzj0N6FJNUUqBQ==}
     engines: {node: '>=18'}
@@ -851,18 +857,12 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
-  '@graphiql/plugin-history@0.0.1':
-    resolution: {integrity: sha512-iG1EvyHDbI7ImFHAr9gx8XqYqfJk48w0cMu0OZkIryGYUOWKHcSJ0X5NaWfEetuPkHEEv/zXduEp4U3HD051pg==}
-    peerDependencies:
-      react: ^18 || ^19
-      react-dom: ^18 || ^19
-
-  '@graphiql/react@0.31.0':
-    resolution: {integrity: sha512-n9mxu19Wn8YMoIl/3R0zVSe5rC0shY24DDp5xUPu4JKPV74BjcYvryUYe61tFIIBwf3a0F4IquO6PpTtihBFXQ==}
+  '@graphiql/react@0.29.0':
+    resolution: {integrity: sha512-4Zd57+DeK5t1KYiqy9hnuaQhR8fnZ1CkKUkmZqINpAe0OlpbszOE661zwNGuW5NjbXgepfI89ICnh1ZVinSJvg==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
-      react: ^18 || ^19
-      react-dom: ^18 || ^19
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: ^16.8.0 || ^17 || ^18
 
   '@graphiql/toolkit@0.11.1':
     resolution: {integrity: sha512-G02te70/oYYna5UhbH6TXwNxeQyWa+ChlPonUrKwC5Ot9ItraGJ9yUU4sS+YRaA+EvkzNoHG79XcW2k1QaAMiw==}
@@ -881,6 +881,13 @@ packages:
     peerDependenciesMeta:
       graphql-ws:
         optional: true
+
+  '@headlessui/react@1.7.19':
+    resolution: {integrity: sha512-Ll+8q3OlMJfJbAKM/+/Y2q6PPYbryqNTXDbryx7SXLIDamkF6iQFbriYHga0dY44PvDhvvBWCx1Xj4U5+G4hOw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
 
   '@headlessui/react@2.2.2':
     resolution: {integrity: sha512-zbniWOYBQ8GHSUIOPY7BbdIn6PzUOq0z41RFrF30HbjsxG6Rrfk+6QulR8Kgf2Vwj2a/rE6i62q5vo+2gI5dJA==}
@@ -955,6 +962,24 @@ packages:
   '@modelcontextprotocol/sdk@1.11.0':
     resolution: {integrity: sha512-k/1pb70eD638anoi0e8wUGAlbMJXyvdV4p62Ko+EZ7eBe1xMx8Uhak1R5DgfoofsK5IBBnRwsYGTaLZl+6/+RQ==}
     engines: {node: '>=18'}
+
+  '@motionone/animation@10.18.0':
+    resolution: {integrity: sha512-9z2p5GFGCm0gBsZbi8rVMOAJCtw1WqBTIPw3ozk06gDvZInBPIsQcHgYogEJ4yuHJ+akuW8g1SEIOpTOvYs8hw==}
+
+  '@motionone/dom@10.12.0':
+    resolution: {integrity: sha512-UdPTtLMAktHiqV0atOczNYyDd/d8Cf5fFsd1tua03PqTwwCe/6lwhLSQ8a7TbnQ5SN0gm44N1slBfj+ORIhrqw==}
+
+  '@motionone/easing@10.18.0':
+    resolution: {integrity: sha512-VcjByo7XpdLS4o9T8t99JtgxkdMcNWD3yHU/n6CLEz3bkmKDRZyYQ/wmSf6daum8ZXqfUAgFeCZSpJZIMxaCzg==}
+
+  '@motionone/generators@10.18.0':
+    resolution: {integrity: sha512-+qfkC2DtkDj4tHPu+AFKVfR/C30O1vYdvsGYaR13W/1cczPrrcjdvYCj0VLFuRMN+lP1xvpNZHCRNM4fBzn1jg==}
+
+  '@motionone/types@10.17.1':
+    resolution: {integrity: sha512-KaC4kgiODDz8hswCrS0btrVrzyU2CSQKO7Ps90ibBVSQmjkrt2teqta6/sOG59v7+dPnKMAg13jyqtMKV2yJ7A==}
+
+  '@motionone/utils@10.18.0':
+    resolution: {integrity: sha512-3XVF7sgyTSI2KWvTf6uLlBJ5iAgRgmvp3bpuOiQJvInd4nZ19ET8lX5unn30SlmRH7hXbBbH+Gxd0m0klJ3Xtw==}
 
   '@n1ru4l/push-pull-async-iterable-iterator@3.2.0':
     resolution: {integrity: sha512-3fkKj25kEjsfObL6IlKPAlHYPq/oYwUkkQ03zsTTiDjD7vg/RxjdiLeCydqtxHZP0JgsXL3D/X5oAkMGzuUp/Q==}
@@ -1862,6 +1887,9 @@ packages:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
     engines: {node: '>= 16'}
 
+  client-only@0.0.1:
+    resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+
   clsx@1.2.1:
     resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
     engines: {node: '>=6'}
@@ -2237,19 +2265,14 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
-  framer-motion@12.9.4:
-    resolution: {integrity: sha512-yaeGDmGQ3eCQEwZ95/pRQMaSh/Q4E2CK6JYOclG/PdjyQad0MULJ+JFVV8911Fl5a6tF6o0wgW8Dpl5Qx4Adjg==}
+  framer-motion@6.5.1:
+    resolution: {integrity: sha512-o1BGqqposwi7cgDrtg0dNONhkmPsUFDaLcKXigzuTFC5x58mE8iyTazxSudFzmT6MEyJKfjjU8ItoMe3W+3fiw==}
     peerDependencies:
-      '@emotion/is-prop-valid': '*'
-      react: ^18.0.0 || ^19.0.0
-      react-dom: ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@emotion/is-prop-valid':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
+      react: '>=16.8 || ^17.0.0 || ^18.0.0'
+      react-dom: '>=16.8 || ^17.0.0 || ^18.0.0'
+
+  framesync@6.0.1:
+    resolution: {integrity: sha512-fUY88kXvGiIItgNC7wcTOl0SNRCVXMKSWW2Yzfmn7EKNc+MpCzcz9DhdHcdjbrtN3c6R4H5dTY2jiCpPdysEjA==}
 
   fresh@2.0.0:
     resolution: {integrity: sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==}
@@ -2340,12 +2363,12 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  graphiql@4.0.1:
-    resolution: {integrity: sha512-F6erSoKyYcrHo7w+3p8l2Bl44BU/HW3z9hGzKUfM8Iz5Lvq+dbyJP/rkiP48dQT0SJ12+msICu8BekGomVImJA==}
+  graphiql@3.9.0:
+    resolution: {integrity: sha512-rJYFlHdBbug9+YbFSwRVvgfPjCayC7wHecZkx/qB4XLuQPFQZw/yB9pmHFtOJV6RiNBBHro3u1GdocKa3YcGRA==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
-      react: ^18 || ^19
-      react-dom: ^18 || ^19
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: ^16.8.0 || ^17 || ^18
 
   graphql-language-service@5.3.1:
     resolution: {integrity: sha512-6u/f6rxQ6sgNfHwHYGsFiR+zYP93uFEStNO0j9WexoOVd2hQK7BPsNyBz/WsB8URHPAjoVhSKs1wkAqUrcxj1g==}
@@ -2387,6 +2410,9 @@ packages:
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
+
+  hey-listen@1.0.8:
+    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
 
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
@@ -2788,12 +2814,6 @@ packages:
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
 
-  motion-dom@12.9.4:
-    resolution: {integrity: sha512-25TWkQPj5I18m+qVjXGtCsxboY11DaRC5HMjd29tHKExazW4Zf4XtAagBdLpyKsVuAxEQ6cx5/E4AB21PFpLnQ==}
-
-  motion-utils@12.9.4:
-    resolution: {integrity: sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg==}
-
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -2945,6 +2965,9 @@ packages:
 
   pkg-types@2.1.0:
     resolution: {integrity: sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A==}
+
+  popmotion@11.0.3:
+    resolution: {integrity: sha512-Y55FLdj3UxkR7Vl3s7Qr4e9m0onSnP8W7d/xQLsoJM40vs6UKHFdygs6SWryasTZYqugMjm3BepCF4CWXDiHgA==}
 
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
@@ -3261,6 +3284,9 @@ packages:
 
   style-mod@4.1.2:
     resolution: {integrity: sha512-wnD1HyVqpJUI2+eKZ+eo1UwghftP6yuFheBqqe+bWCotBjC2K1YnteJILRMs3SM4V/0dLEW1SC27MWP5y+mwmw==}
+
+  style-value-types@5.0.0:
+    resolution: {integrity: sha512-08yq36Ikn4kx4YU6RD7jWEv27v4V+PUsOGa4n/as8Et3CuODMJQ00ENeAVXAeydX4Z2j1XHZF1K2sX4mGl18fA==}
 
   supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
@@ -4303,6 +4329,14 @@ snapshots:
       style-mod: 4.1.2
       w3c-keyname: 2.2.8
 
+  '@emotion/is-prop-valid@0.8.8':
+    dependencies:
+      '@emotion/memoize': 0.7.4
+    optional: true
+
+  '@emotion/memoize@0.7.4':
+    optional: true
+
   '@esbuild/aix-ppc64@0.25.3':
     optional: true
 
@@ -4447,26 +4481,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@graphiql/plugin-history@0.0.1(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@graphiql/react': 0.31.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@graphiql/toolkit': 0.11.2(@types/node@22.15.3)(graphql@16.11.0)
-      react: 18.3.1
-      react-compiler-runtime: 19.1.0-rc.1(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-    transitivePeerDependencies:
-      - '@codemirror/language'
-      - '@emotion/is-prop-valid'
-      - '@types/node'
-      - '@types/react'
-      - '@types/react-dom'
-      - graphql
-      - graphql-ws
-
-  '@graphiql/react@0.31.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@graphiql/react@0.29.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@graphiql/toolkit': 0.11.2(@types/node@22.15.3)(graphql@16.11.0)
-      '@headlessui/react': 2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@headlessui/react': 1.7.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-dialog': 1.1.11(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-dropdown-menu': 2.1.12(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-tooltip': 1.2.4(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4476,7 +4494,7 @@ snapshots:
       codemirror: 5.65.19
       codemirror-graphql: 2.2.1(@codemirror/language@6.0.0)(codemirror@5.65.19)(graphql@16.11.0)
       copy-to-clipboard: 3.3.3
-      framer-motion: 12.9.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 6.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       get-value: 3.0.1
       graphql: 16.11.0
       graphql-language-service: 5.3.1(graphql@16.11.0)
@@ -4487,7 +4505,6 @@ snapshots:
       set-value: 4.1.0
     transitivePeerDependencies:
       - '@codemirror/language'
-      - '@emotion/is-prop-valid'
       - '@types/node'
       - '@types/react'
       - '@types/react-dom'
@@ -4508,6 +4525,13 @@ snapshots:
       meros: 1.3.0(@types/node@22.15.3)
     transitivePeerDependencies:
       - '@types/node'
+
+  '@headlessui/react@1.7.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@tanstack/react-virtual': 3.13.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      client-only: 0.0.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@headlessui/react@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -4610,6 +4634,41 @@ snapshots:
       zod-to-json-schema: 3.24.5(zod@3.24.3)
     transitivePeerDependencies:
       - supports-color
+
+  '@motionone/animation@10.18.0':
+    dependencies:
+      '@motionone/easing': 10.18.0
+      '@motionone/types': 10.17.1
+      '@motionone/utils': 10.18.0
+      tslib: 2.8.1
+
+  '@motionone/dom@10.12.0':
+    dependencies:
+      '@motionone/animation': 10.18.0
+      '@motionone/generators': 10.18.0
+      '@motionone/types': 10.17.1
+      '@motionone/utils': 10.18.0
+      hey-listen: 1.0.8
+      tslib: 2.8.1
+
+  '@motionone/easing@10.18.0':
+    dependencies:
+      '@motionone/utils': 10.18.0
+      tslib: 2.8.1
+
+  '@motionone/generators@10.18.0':
+    dependencies:
+      '@motionone/types': 10.17.1
+      '@motionone/utils': 10.18.0
+      tslib: 2.8.1
+
+  '@motionone/types@10.17.1': {}
+
+  '@motionone/utils@10.18.0':
+    dependencies:
+      '@motionone/types': 10.17.1
+      hey-listen: 1.0.8
+      tslib: 2.8.1
 
   '@n1ru4l/push-pull-async-iterable-iterator@3.2.0': {}
 
@@ -5574,6 +5633,8 @@ snapshots:
 
   check-error@2.1.1: {}
 
+  client-only@0.0.1: {}
+
   clsx@1.2.1: {}
 
   clsx@2.1.1: {}
@@ -6073,14 +6134,22 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
-  framer-motion@12.9.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@6.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      motion-dom: 12.9.4
-      motion-utils: 12.9.4
-      tslib: 2.8.1
-    optionalDependencies:
+      '@motionone/dom': 10.12.0
+      framesync: 6.0.1
+      hey-listen: 1.0.8
+      popmotion: 11.0.3
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+      style-value-types: 5.0.0
+      tslib: 2.8.1
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+
+  framesync@6.0.1:
+    dependencies:
+      tslib: 2.8.1
 
   fresh@2.0.0: {}
 
@@ -6187,17 +6256,15 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  graphiql@4.0.1(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  graphiql@3.9.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@graphiql/plugin-history': 0.0.1(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@graphiql/react': 0.31.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@graphiql/react': 0.29.0(@codemirror/language@6.0.0)(@types/node@22.15.3)(@types/react-dom@18.3.7(@types/react@18.3.20))(@types/react@18.3.20)(graphql@16.11.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       graphql: 16.11.0
       react: 18.3.1
       react-compiler-runtime: 19.1.0-rc.1(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
       - '@codemirror/language'
-      - '@emotion/is-prop-valid'
       - '@types/node'
       - '@types/react'
       - '@types/react-dom'
@@ -6235,6 +6302,8 @@ snapshots:
       function-bind: 1.1.2
 
   he@1.2.0: {}
+
+  hey-listen@1.0.8: {}
 
   http-errors@2.0.0:
     dependencies:
@@ -6604,12 +6673,6 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.6.1
 
-  motion-dom@12.9.4:
-    dependencies:
-      motion-utils: 12.9.4
-
-  motion-utils@12.9.4: {}
-
   ms@2.1.3: {}
 
   muggle-string@0.4.1: {}
@@ -6752,6 +6815,13 @@ snapshots:
       confbox: 0.2.2
       exsolve: 1.0.5
       pathe: 2.0.3
+
+  popmotion@11.0.3:
+    dependencies:
+      framesync: 6.0.1
+      hey-listen: 1.0.8
+      style-value-types: 5.0.0
+      tslib: 2.8.1
 
   possible-typed-array-names@1.1.0: {}
 
@@ -7150,6 +7220,11 @@ snapshots:
   strip-json-comments@3.1.1: {}
 
   style-mod@4.1.2: {}
+
+  style-value-types@5.0.0:
+    dependencies:
+      hey-listen: 1.0.8
+      tslib: 2.8.1
 
   supports-color@7.2.0:
     dependencies:

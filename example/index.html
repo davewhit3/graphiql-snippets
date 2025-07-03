@@ -13,7 +13,7 @@
   <!-- Styl GraphiQL -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/graphiql@3.9.0/graphiql.min.css"
+    href="https://cdn.jsdelivr.net/npm/graphiql@3.7.0/graphiql.min.css"
   />
   <!-- es-module-shims dla wsparcia Import Maps -->
   <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.6.3/dist/es-module-shims.min.js"></script>
@@ -21,18 +21,21 @@
   <script type="importmap">
     {
       "imports": {
-        "react": "https://esm.sh/react@18.2.0",
-        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/+esm",
+        "react/jsx-runtime": "https://cdn.jsdelivr.net/npm/react@18.2.0/jsx-runtime/+esm",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/+esm",
         "react-dom/client": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/client/+esm",
         "react-compiler-runtime": "https://cdn.jsdelivr.net/npm/react-compiler-runtime@rc/+esm",
-        "react/jsx-runtime": "https://cdn.jsdelivr.net/npm/react@18.2.0/jsx-runtime/+esm",
-        "@graphiql/react": "https://cdn.jsdelivr.net/npm/@graphiql/react@0.31.0/+esm",
-        "@graphiql/toolkit": "https://cdn.jsdelivr.net/npm/@graphiql/toolkit@0.11.1/+esm",
-        "graphiql": "https://cdn.jsdelivr.net/npm/graphiql@4.0.2/+esm",
-        "graphiql-snippets-next": "https://cdn.jsdelivr.net/npm/graphiql-snippets-next@1.0.8/dist/index.esm.js"
+
+        "@graphiql/react": "https://esm.sh/@graphiql/react@0.22.2",
+        "@graphiql/toolkit": "https://esm.sh/@graphiql/toolkit@0.9.0",
+        "graphiql": "https://esm.sh/graphiql@3.3.0",
+
+        "graphiql-snippets-next": "https://cdn.jsdelivr.net/npm/graphiql-snippets@1.0.5/dist/index.esm.js"
       }
     }
   </script>
+
 </head>
 <body>
 <div id="root"></div>

@@ -1,5 +1,5 @@
 import { useSnippetContext } from './context';
-import { cn, UnStyledButton } from '@graphiql/react';
+import { UnStyledButton } from '@graphiql/react';
 import { QueryStoreItem } from '@graphiql/toolkit';
 
 export function Snippet() {
@@ -31,16 +31,15 @@ function SnippetItem(props: QuerySnippetItemProps) {
           context.editVariables(props.item.variables ?? '');
         }
       }}
-      className={cn('graphiql-history-item')}>
+      className={'graphiql-history-item'}>
       {(
         <>
-          <UnStyledButton
-            type="button"
-            className="graphiql-history-item-label"
+          <button
+            className="graphiql-un-styled graphiql-history-item-label"
             aria-label="Set active"
           >
             {props.item.operationName}
-          </UnStyledButton>
+          </button>
         </>
       )}
     </li>

@@ -66,13 +66,12 @@
     // Import GraphiQL and the Explorer plugin
     import { GraphiQL } from 'graphiql';
     import { createGraphiQLFetcher } from '@graphiql/toolkit';
-    import { explorerPlugin } from '@graphiql/plugin-explorer';
     import snippetPlugin from 'graphiql-snippets-next';
 
     const fetcher = createGraphiQLFetcher({
       url: 'https://swapi-graphql.netlify.app/graphql',
     });
-    const explorer = explorerPlugin();
+
     const snippetsUrl = '/public/snippets.json';
 
     function App() {
@@ -84,7 +83,7 @@
         fetcher,
         query: query,
         variables: variables,
-        plugins: [explorer, plugin],
+        plugins: [plugin],
       });
     }
 

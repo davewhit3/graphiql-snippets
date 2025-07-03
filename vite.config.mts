@@ -41,7 +41,7 @@ export default defineConfig({
 
     rollupOptions: {
       external: [
-        'react/jsx-runtime',
+        // 'react/jsx-runtime',
         '@graphiql/react',
         ...Object.keys(packageJSON.peerDependencies || {}),
         ...Object.keys(packageJSON.dependencies || {}),
@@ -51,7 +51,7 @@ export default defineConfig({
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          'react/jsx-runtime': 'jsxRuntime',
+          // 'react/jsx-runtime': 'jsxRuntime',
           '@graphiql/react': 'GraphiQLReact',
           graphiql: 'GraphiQL',
         },

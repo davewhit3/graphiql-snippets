@@ -1,6 +1,6 @@
 {
   "name": "graphiql-snippets",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "GraphiQL Snippets",
   "license": "MIT",
   "exports": {
@@ -26,10 +26,10 @@
     "types:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@graphiql/react": "0.31.0",
-    "@graphiql/toolkit": "^0.11.1",
+    "@graphiql/react": "0.29.0",
+    "@graphiql/toolkit": "^0.11.0",
     "@headlessui/react": "^2.2.2",
-    "graphiql": "^4.0.1",
+    "graphiql": "^3.7.0",
     "graphql": "^16.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

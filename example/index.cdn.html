@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GraphiQL + Snippets (ESM)</title>
+  <style>
+      html, body, #graphiql {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+      }
+  </style>
+  <!-- Styl GraphiQL -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/graphiql@3.7.0/graphiql.min.css"
+  />
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"
+    integrity="sha256-S0lp&#43;k7zWUMk2ixteM6HZvu8L9Eh//OVrt&#43;ZfbCpmgY="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"
+    integrity="sha256-IXWO0ITNDjfnNXIu5POVfqlgYoop36bDzhodR6LW5Pc="
+    crossorigin="anonymous"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/graphiql@3.7.0/graphiql.min.css"
+    integrity="sha256-Dbkv2LUWis&#43;0H4Z&#43;IzxLBxM2ka1J133lSjqqtSu49o8="
+    crossorigin="anonymous"
+  />
+
+
+</head>
+<body>
+<div id="graphiql">Loading...</div>
+
+<script>
+  window.process = { env: { NODE_ENV: 'production' } };
+</script>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/graphiql@3.7.0/graphiql.min.js"
+  integrity="sha256-qsScAZytFdTAEOM8REpljROHu8DvdvxXBK7xhoq5XD0="
+  crossorigin="anonymous"
+></script>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/graphiql-snippets@1.0.8/dist/index.umd.js"
+  crossorigin="anonymous"
+></script>
+
+
+<script type="module">
+  const url = location.protocol + '//' + location.host + "/graphql";
+  const wsProto = location.protocol == 'https:' ? 'wss:' : 'ws:';
+  const subscriptionUrl = wsProto + '//' + location.host + "/graphql";
+  const fetcherHeaders = undefined;
+  const uiHeaders = undefined;
+
+  let plugins = [];
+
+  const snippetsUrl = '\/public\/snippets.json';
+
+  function App() {
+    const [query, setQuery] = React.useState('');
+    const [variables, setVariables] = React.useState('');
+
+    const localPlugins = React.useMemo(() => {
+      const p = [...plugins];
+      p.push(snippetPlugin.default(snippetsUrl, setQuery, setVariables));
+      return p;
+    }, [setQuery, setVariables]);
+
+    const fetcher = GraphiQL.createFetcher({ url, subscriptionUrl, headers: fetcherHeaders });
+
+    return React.createElement(GraphiQL, {
+      fetcher,
+      query: query,
+      variables: variables,
+      plugins: localPlugins,
+      isHeadersEditorEnabled: true,
+      shouldPersistHeaders: true,
+      headers: JSON.stringify(uiHeaders, null, 2),
+      defaultEditorToolsVisibility: "both",
+    });
+  }
+
+  const container = document.getElementById('graphiql');
+  const root = ReactDOM.createRoot(container);
+  root.render(React.createElement(App));
+</script>
+
+</body>
+</html>

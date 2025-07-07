@@ -1,12 +1,17 @@
 import { QueryStoreItem } from '@graphiql/toolkit';
 import {ReactNode, useEffect, useState, createContext, useContext } from 'react';
 
-
 export type SnippetContextType = {
   items: QueryStoreItem[];
   editQuery: (query: string) => void;
   editVariables: (variables: string) => void
   snippetsEndpoint: string;
+};
+
+export type SnippetShareContextType = {
+  compressedQuery: string | undefined;
+  editQuery: (query: string) => void;
+  editVariables: (variables: string) => void
 };
 
 export function createNullableContext<T>(name: string) {
@@ -84,3 +89,29 @@ export function SnippetContextProvider({ editQuery, editVariables, snippetsEndpo
 
 export const useSnippetContext =
   createContextHook<SnippetContextType>(SnippetContext);
+
+
+
+export const SnippetShareContext = createNullableContext<SnippetShareContextType>('SnippetShareContext');
+
+type SnippetShareContextProviderProps = {
+  children: ReactNode;
+  compressedQuery: string | undefined
+  editQuery: (query: string) => void
+  editVariables: (variables: string) => void
+};
+
+export function SnippetShareContextProvider({ compressedQuery, editQuery, editVariables, children }: SnippetShareContextProviderProps) {
+  const value: SnippetShareContextType = {
+    compressedQuery,
+    editQuery,
+    editVariables,
+  };
+
+  return (
+    <SnippetShareContext.Provider value={value}>{children}</SnippetShareContext.Provider>
+  );
+}
+
+export const useSnippetShareContext =
+  createContextHook<SnippetShareContextType>(SnippetShareContext);

@@ -8,6 +8,10 @@ import copy from 'rollup-plugin-copy';
 
 const umdOutDir = 'public/libs';
 
+const deps = Object.keys(packageJSON.dependencies || {}).filter((pkg) => {
+  return pkg !== 'pako'
+})
+
 export default defineConfig({
   plugins: [
     react(),
@@ -41,17 +45,15 @@ export default defineConfig({
 
     rollupOptions: {
       external: [
-        // 'react/jsx-runtime',
         '@graphiql/react',
         ...Object.keys(packageJSON.peerDependencies || {}),
-        ...Object.keys(packageJSON.dependencies || {}),
+        ...deps,
       ],
       output: {
         exports: 'named',
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          // 'react/jsx-runtime': 'jsxRuntime',
           '@graphiql/react': 'GraphiQLReact',
           graphiql: 'GraphiQL',
         },
